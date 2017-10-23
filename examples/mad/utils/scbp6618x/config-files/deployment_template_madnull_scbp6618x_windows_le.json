@@ -1,0 +1,33 @@
+{
+	"deviceName" : "C6670",
+	
+	"partitions" : [
+		{
+			"name"			: "load-partition",
+			"vaddr"			: "0x9e000000",
+			"size"			: "0x2000000",
+			"loadPartition" : true 
+		}
+	],
+	
+	"applications" : [
+		{
+			"name"		 : "master",
+			"fileName"       : "../../mad_null/scbp6618x/Debug/mad_null_scbp6618x.out",
+			"allowedCores"   : [0]
+		},
+		{
+			"name"		 : "slave",
+			"fileName"       : "../../mad_null/scbp6618x/Debug/mad_null_scbp6618x.out",
+			"allowedCores"   : [1,2,3]
+		}
+	],
+	
+	"appDeployment" : [
+		"master",
+		"slave",
+		"slave",
+		"slave"
+	]
+}
+

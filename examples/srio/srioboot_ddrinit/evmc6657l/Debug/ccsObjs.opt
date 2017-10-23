@@ -1,0 +1,1 @@
+"./src/srioboot_ddrinit.obj" -l"ti.platform.evm6657l.ae66" -l"libc.a" "../srioboot_helloworld.cmd" 

@@ -1,0 +1,48 @@
+----------------------------
+Release Version: 01.00.01.01
+----------------------------
+
+MAD Utils User guide is available at:
+ http://processors.wiki.ti.com/index.php/MAD_Utils_User_Guide
+
+Changes in release 01.00.01.01:
+------------------------------
+1. Fixed build issue in MAD loader for C6670 with CGT 7.4.0
+
+Changes in release 01.00.01.00:
+------------------------------
+1. Added support for C6657 device 
+
+Changes in release 01.00.00.05:
+------------------------------
+1. MAP tool now creates a CCS GEL file which enables symbolic debugging of the 
+   applications booted using MAD loader. This GEL files provides CCS the relocated
+   address of the ELF segments in an application.
+   This GEL file is not produced/required when the MAP tool is invoked in
+    "bypass-prelink" mode.
+    
+Changes in release 01.00.00.04:
+------------------------------
+1. Added a new mode to the MAP tool to bypass "prelink" step. This mode could
+   be used if the user wants to use the MAD infrastructure only as a multicore
+   ELF loader. In this mode, the MAP tool prepares a ROMFS image with the user
+   specified ELF files, which would be loaded and run on the specified core by
+   the MAD loader application.
+   It is recommended to use this mode if the MAD infrastructure is being used
+   only for multicore ELF loading. 
+
+Important Note about Usage:
+---------------------------
+1) Near DP segments: (applicable only when using MAP tool in non "bypass-prelink" mode)
+ If the applications near-DP data sections (e.g. ".bss", ".neardata",
+ ".rodata") are spread across multiple ELF segments, then the user has to
+ ensure that all the near-DP segments are placed in a single memory partition 
+ in the deployment configuration file. MAP tool will ensure that the
+ relative ordering of the near-DP segments are maintained in the prelinked
+ output file.
+ To find the near-DP segments do the following:
+ use the ofd6x tool to get the object dump of the ELF file.
+ Find the first near-DP segment via the __TI_STATIC_BASE symbol value. Beginning with the 
+ segment whose run address contains the __TI_STATIC_BASE symbol value and continuing through
+ successive segments that are adjacent, (maximum upto 32K) user can identify the near-DP segments.
+

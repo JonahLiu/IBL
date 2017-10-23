@@ -1,0 +1,141 @@
+******************************************************************************
+               TMS320C6x Linker Unix v7.4.0                    
+******************************************************************************
+>> Linked Mon Nov 19 18:26:27 2012
+
+OUTPUT FILE NAME:   <nml.exe>
+ENTRY POINT SYMBOL: "nml_entry"  address: 9e00a400
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  PMEM                  9e00a400   00000060  00000060  00000000  RWIX
+  PMEM1                 9e00a460   000007a0  00000778  00000028  RWIX
+  DMEM                  9fffd800   00001400  000013aa  00000056  RWIX
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+9e00a400    9e00a400    000007d8   000007d8    r-x
+  9e00a400    9e00a400    00000060   00000060    r-x .enter
+  9e00a460    9e00a460    00000760   00000760    r-x .text
+  9e00abc0    9e00abc0    00000018   00000018    r-- .const
+9fffd800    9fffd800    000013aa   00000000    rw-
+  9fffd800    9fffd800    000013aa   00000000    rw- .far
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.enter     0    9e00a400    00000060     
+                  9e00a400    00000060     entry.obj (.enter)
+
+.text      0    9e00a460    00000760     
+                  9e00a460    000006e0     nml_ar_utils.obj (.text)
+                  9e00ab40    00000080     nml_loader.obj (.text)
+
+.const     0    9e00abc0    00000018     
+                  9e00abc0    00000018     nml_loader.obj (.const:arFnTbl)
+
+.far       0    9fffd800    000013aa     UNINITIALIZED
+                  9fffd800    000013aa     nml_loader.obj (.far)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00000000   __TI_STATIC_BASE
+ffffffff   __TI_pprof_out_hndl
+ffffffff   __TI_prof_data_size
+ffffffff   __TI_prof_data_start
+ffffffff   __binit__
+ffffffff   __c_args__
+9e00abc0   arFnTbl
+ffffffff   binit
+9fffdc00   nml_ar_data
+9fffeba0   nml_boot_status
+9e00a400   nml_entry
+9e00aacc   nml_fn_call
+9e00ab40   nml_loader
+9e00a9ec   nml_mem_attr_set
+9e00a4e8   nml_mem_cpy
+9e00a5e8   nml_mem_map_set
+9e00a560   nml_mem_set
+9fffeba8   nml_mpax_seg_idx
+9fffd800   nml_stack
+9e00aaf8   nml_upd_status
+9e00a494   nml_wbinv_cache_block
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_STATIC_BASE
+9e00a400   nml_entry
+9e00a494   nml_wbinv_cache_block
+9e00a4e8   nml_mem_cpy
+9e00a560   nml_mem_set
+9e00a5e8   nml_mem_map_set
+9e00a9ec   nml_mem_attr_set
+9e00aacc   nml_fn_call
+9e00aaf8   nml_upd_status
+9e00ab40   nml_loader
+9e00abc0   arFnTbl
+9fffd800   nml_stack
+9fffdc00   nml_ar_data
+9fffeba0   nml_boot_status
+9fffeba8   nml_mpax_seg_idx
+ffffffff   __TI_pprof_out_hndl
+ffffffff   __TI_prof_data_size
+ffffffff   __TI_prof_data_start
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+
+[25 symbols]
+
+
+DYNAMIC SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+UNDEFED    
+00000000   __TI_STATIC_BASE
+ffffffff   __TI_pprof_out_hndl
+ffffffff   __TI_prof_data_size
+ffffffff   __TI_prof_data_start
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+9fffdc00   nml_ar_data
+9fffeba0   nml_boot_status
+9e00a400   nml_entry
+
+[11 symbols]
+
+
+IMPORTED and EXPORTED SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+IMPORTED SYMBOLS
+
+name                           size      Imported from
+-----------------------------  --------  -------------
+
+[0 symbols]
+
+
+EXPORTED SYMBOLS
+
+address    name
+--------   ----
+9fffdc00   nml_ar_data
+9fffeba0   nml_boot_status
+9e00a400   nml_entry

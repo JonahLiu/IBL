@@ -1,0 +1,1 @@
+"./src/srioBootExample.obj" -l"ti.platform.evm6670l.ae66" -l"libc.a" "../srio_boot_example.cmd" 

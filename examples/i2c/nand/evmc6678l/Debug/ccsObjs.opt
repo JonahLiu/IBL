@@ -1,0 +1,1 @@
+"./src/i2c_boot_nand_example.obj" -l"ti.platform.evm6678l.ae66" -l"libc.a" "../i2c_boot_nand_example.cmd" 

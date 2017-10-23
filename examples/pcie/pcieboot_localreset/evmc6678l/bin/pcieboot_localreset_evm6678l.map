@@ -1,0 +1,166 @@
+******************************************************************************
+               TMS320C6x Linker Unix v7.4.0                    
+******************************************************************************
+>> Linked Mon Nov 19 18:19:52 2012
+
+OUTPUT FILE NAME:   <../bin/pcieboot_localreset_evm6678l.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00878000
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  L2_LOCAL              00872dc0   0000d240  00000bac  0000c694  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00872dc0    00872dc0    00000700   00000700    r-x
+  00872dc0    00872dc0    00000700   00000700    r-x .text
+008734c0    008734c0    00000400   00000000    rw-
+  008734c0    008734c0    00000400   00000000    rw- .stack
+008738c0    008738c0    0000000c   0000000c    rw-
+  008738c0    008738c0    0000000c   0000000c    rw- .fardata
+008738cc    008738cc    00000020   00000020    r--
+  008738cc    008738cc    00000020   00000020    r-- .cinit
+00878000    00878000    00000080   00000080    r-x
+  00878000    00878000    00000080   00000080    r-x .text:_c_int00
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.text      0    00872dc0    00000700     
+                  00872dc0    00000180     rts6600_elf.lib : copy_decompress_rle.obj (.text:__TI_decompress_rle_core)
+                  00872f40    00000100                     : autoinit.obj (.text:_auto_init_elf)
+                  00873040    00000100                     : cpy_tbl.obj (.text:copy_in)
+                  00873140    000000c0                     : exit.obj (.text:exit)
+                  00873200    000000c0                     : tls.obj (.text:tls:init:__TI_tls_init)
+                  008732c0    000000a0                     : memcpy64.obj (.text:memcpy)
+                  00873360    00000060                     : cpp_init.obj (.text:__TI_cpp_init)
+                  008733c0    00000060     pcieboot_localreset.obj (.text)
+                  00873420    00000040     rts6600_elf.lib : args_main.obj (.text:_args_main)
+                  00873460    00000020                     : exit.obj (.text:abort)
+                  00873480    00000020                     : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  008734a0    00000020                     : copy_decompress_rle.obj (.text:decompress:rle24:__TI_decompress_rle24)
+
+.stack     0    008734c0    00000400     UNINITIALIZED
+                  008734c0    00000008     rts6600_elf.lib : boot.obj (.stack)
+                  008734c8    000003f8     --HOLE--
+
+.fardata   0    008738c0    0000000c     
+                  008738c0    0000000c     rts6600_elf.lib : exit.obj (.fardata)
+
+.cinit     0    008738cc    00000020     
+                  008738cc    0000000d     (.cinit..fardata.load) [load image, compression = rle]
+                  008738d9    00000003     --HOLE-- [fill = 0]
+                  008738dc    00000008     (__TI_handler_table)
+                  008738e4    00000008     (__TI_cinit_table)
+
+.text:_c_int00 
+*          0    00878000    00000080     
+                  00878000    00000080     rts6600_elf.lib : boot.obj (.text:_c_int00)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 008738e4 records: 1, size/record: 8, table size: 8
+	.fardata: load addr=008738cc, load size=0000000d bytes, run addr=008738c0, run size=0000000c bytes, compression=rle
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 008738dc records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00873460   C$$EXIT
+008738e4   __TI_CINIT_Base
+008738ec   __TI_CINIT_Limit
+008738dc   __TI_Handler_Table_Base
+008738e4   __TI_Handler_Table_Limit
+UNDEFED    __TI_INITARRAY_Base
+UNDEFED    __TI_INITARRAY_Limit
+008738c0   __TI_STACK_END
+00000400   __TI_STACK_SIZE
+00000000   __TI_STATIC_BASE
+UNDEFED    __TI_TLS_INIT_Base
+UNDEFED    __TI_TLS_INIT_Limit
+00000001   __TI_args_main
+00873360   __TI_cpp_init
+00873480   __TI_decompress_none
+008734a0   __TI_decompress_rle24
+008738c8   __TI_enable_exit_profile_output
+ffffffff   __TI_pprof_out_hndl
+ffffffff   __TI_prof_data_size
+ffffffff   __TI_prof_data_start
+00873200   __TI_tls_init
+ffffffff   __binit__
+ffffffff   __c_args__
+00873420   _args_main
+00872f40   _auto_init_elf
+00878000   _c_int00
+008738c0   _cleanup_ptr
+008738c4   _dtors_ptr
+008734c0   _stack
+00873460   abort
+ffffffff   binit
+00873040   copy_in
+00873140   exit
+008733f8   main
+008732c0   memcpy
+008733c0   start_boot
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_STATIC_BASE
+00000001   __TI_args_main
+00000400   __TI_STACK_SIZE
+00872f40   _auto_init_elf
+00873040   copy_in
+00873140   exit
+00873200   __TI_tls_init
+008732c0   memcpy
+00873360   __TI_cpp_init
+008733c0   start_boot
+008733f8   main
+00873420   _args_main
+00873460   C$$EXIT
+00873460   abort
+00873480   __TI_decompress_none
+008734a0   __TI_decompress_rle24
+008734c0   _stack
+008738c0   __TI_STACK_END
+008738c0   _cleanup_ptr
+008738c4   _dtors_ptr
+008738c8   __TI_enable_exit_profile_output
+008738dc   __TI_Handler_Table_Base
+008738e4   __TI_CINIT_Base
+008738e4   __TI_Handler_Table_Limit
+008738ec   __TI_CINIT_Limit
+00878000   _c_int00
+ffffffff   __TI_pprof_out_hndl
+ffffffff   __TI_prof_data_size
+ffffffff   __TI_prof_data_start
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    __TI_INITARRAY_Base
+UNDEFED    __TI_INITARRAY_Limit
+UNDEFED    __TI_TLS_INIT_Base
+UNDEFED    __TI_TLS_INIT_Limit
+
+[36 symbols]

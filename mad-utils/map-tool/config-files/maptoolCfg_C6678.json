@@ -1,0 +1,9 @@
+{
+	"deploymentCfgFile" 	: "./config-files/deployment_template_C6678.json",
+	"LoadImageName"			: "c6678-le.bin",
+	"prelinkExe"			: "prelink6x",
+	"stripExe"			    : "strip6x",
+	"ofdTool"				: "ofd6x",
+	"malApp"                : "../mad-loader/bin/C6678/le/mal_app.exe",
+	"nmlLoader"             : "../mad-loader/bin/C6678/le/nml.exe"
+}

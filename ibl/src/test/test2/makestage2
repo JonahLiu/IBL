@@ -1,0 +1,66 @@
+# simple make file for test2
+
+
+CC= cl6x
+CFLAGS= -g -c -mv 6400+ $(OPT)
+
+.PHONY: test2
+
+test2: gen_cdefdep utils test2_$(ENDIAN).blob
+
+ifeq ($(ENDIAN),little)
+ LIB= $(TOOLSC6X)/lib/rts64plus.lib
+ OPT=
+ C2B_OPT=
+else
+ LIB= $(TOOLSC6X)/lib/rts64pluse.lib
+ OPT= -me
+ C2B_OPT= -swap
+endif
+
+
+
+test2_$(ENDIAN).blob: test2_$(ENDIAN).bccs
+	..\..\util\btoccs\ccs2bin $(C2B_OPT) $< $@
+
+test2_$(ENDIAN).bccs: test2_$(ENDIAN).b
+	..\..\util\btoccs\b2ccs $< $@
+
+test2_$(ENDIAN).b: test2_$(ENDIAN).out test2.rmd
+	hex6x $< test2.rmd
+	copy test2im.hex $@
+
+test2_$(ENDIAN).out: cdefdep c0.obj test2.obj test2ini.obj test2.cmd
+	cl6x -z -o $@ -m test2.map -e _enter test2.cmd $(LIB)
+
+
+c0.obj: c0.c cdefdep
+	$(CC) $(CFLAGS) $<
+
+
+test2.obj: test2.c cdefdep
+	$(CC) $(CFLAGS) $<
+
+test2ini.obj: test2ini.s cdefdep
+	$(CC) $(CFLAGS) $<
+
+gen_cdefdep:
+	@echo checking endian dependency
+	@echo $(ENDIAN) > cdefdep.tmp
+	@sh -c 'if diff -q cdefdep.tmp cdefdep ; then echo same ; else cp cdefdep.tmp cdefdep ; fi '
+
+	
+utils:
+	make -C ../../util/btoccs
+
+
+clean:
+	rm -rf test2_little.blob test2_big.blob
+	rm -rf test2_little.bccs test2_big.bccs
+	rm -rf test2_little.b    test2_big.b
+	rm -rf test2_little.out  test2_big.out
+	rm -rf c0.obj
+	rm -rf test2.obj
+	rm -rf test2ini.obj
+	rm -rf test2im.hex
+	rm -rf test2.map

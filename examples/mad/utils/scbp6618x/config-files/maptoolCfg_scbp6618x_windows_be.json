@@ -1,0 +1,9 @@
+{
+	"deploymentCfgFile" 	: "config-files/deployment_template_scbp6618x_windows_be.json",
+	"LoadImageName"			: "mad-c6670-be.bin",
+	"prelinkExe"			: "C:/Program Files/Texas Instruments/C6000 Code Generation Tools 7.2.4/bin/prelink6x",
+	"stripExe"			    : "strip6x",
+	"ofdTool"				: "ofd6x",
+	"malApp"				: "../../../../mad-utils/mad-loader/bin/C6670/be/mal_app.exe",
+	"nmlLoader"				: "../../../../mad-utils/mad-loader/bin/C6670/be/nml.exe"
+}

@@ -1,0 +1,9 @@
+{
+	"deploymentCfgFile" 	: ".\\config-files\\deployment_template_C6678_windows.json",
+	"LoadImageName"			: "c6678-le.bin",
+	"prelinkExe"			: "G:\\Program Files\\Texas Instruments\\cgt-7.2.4\\bin\\prelink6x",
+	"stripExe"			    : "G:\\Program Files\\Texas Instruments\\cgt-7.2.4\\bin\\strip6x",
+	"ofdTool"				: "G:\\Program Files\\Texas Instruments\\cgt-7.2.4\\bin\\ofd6x.exe",
+	"malApp"				: "..\\mad-loader\\bin\\C6678\\le\\mal_app.exe",
+	"nmlLoader"				: "..\\mad-loader\\bin\\C6678\\le\\nml.exe"
+}

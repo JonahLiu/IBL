@@ -1,0 +1,134 @@
+#*******************************************************************************************
+#* FILE PURPOSE: Top level make for the IBL
+#*******************************************************************************************
+#* FILE NAME: Makefile
+#*
+#* DESCRIPTION: Builds the Intermediate Boot Loader (IBL)
+#*
+#*  Usage:  make c6455 | c6472 | c6474 | c6457 | c66x [DEBUG=yes] [ETH=no] [NAND=no]  \
+#*          [BIS=no] [COFF=no] [BLOB=no] [ELF=no] [ENDIAN= both | big | little] [I2C_BUS_ADDR= 0x50 | 0x51] \
+#*			[COMPACT_I2C=yes] [I2C_SIZE_BYTES=..]
+#*******************************************************************************************
+
+IBLS_C6X= c6455 c6472 c6474 c6474l c6457 c66x c665x
+
+
+# Excluding functions from the build reduces the I2C eeprom memory used and
+# speeds the initial boot time. Note that boot table cannot be excluded
+# because it is required for the two stage I2C load process
+
+# The endian of the build. The default target builds a single ROM image with both endians present
+ifeq ($(ENDIAN_MODE),big)
+ I2CROM=        big_endian
+ STAGE1_TARGET= be_target
+else
+ ifeq ($(ENDIAN_MODE),little)
+  I2CROM=        little_endian
+  STAGE1_TARGET= le_target
+ else
+  I2CROM=        both
+  STAGE1_TARGET= be_target le_target compare
+ endif
+endif
+
+EXCLUDES= $(CEXCLUDES)
+
+
+# The default i2c size. This is used only for the i2c writer utility
+ifndef I2C_SIZE_BYTES
+ I2C_SIZE_BYTES=0x20000
+endif
+
+# exclusions based on device capability
+ifeq ($(TARGET),c6455)
+ C64X_EXCLUDES=yes
+endif
+
+ifeq ($(TARGET),c6457)
+ C64X_EXCLUDES=yes
+endif
+ 
+ifeq ($(TARGET),c6472)
+ C64X_EXCLUDES=yes
+endif
+
+ifeq ($(TARGET),c6474)
+ C64X_EXCLUDES=yes
+endif
+
+ifeq ($(TARGET),c6474l)
+ C64X_EXCLUDES=yes
+endif
+
+ifeq ($(C64X_EXCLUDES),yes)
+
+ ifeq (,$(findstring SPI, $(EXCLUDES)))
+  EXCLUDES+= SPI
+ endif
+
+ ifeq (,$(findstring NOR_SPI, $(EXCLUDES)))
+  EXCLUDES+= NOR_SPI
+ endif
+
+ ifeq (,$(findstring NOR_EMIF, $(EXCLUDES)))
+  EXCLUDES+= NOR_EMIF
+ endif
+
+ ifeq (,$(findstring NAND_SPI, $(EXCLUDES)))
+  EXCLUDES+= NAND_SPI
+ endif
+
+ ifeq (,$(findstring NAND_EMIF, $(EXCLUDES)))
+  EXCLUDES+= NAND_EMIF
+ endif
+
+endif
+
+# Prevent I2C/SPI rom creation based on defines
+ROMS=
+
+ifeq (,$(findstring I2C, $(EXCLUDES)))
+ ROMS+= i2crom
+endif
+
+ifeq (,$(findstring SPI, $(EXCLUDES)))
+ ROMS+= spiRom
+endif
+
+
+# Excludes identify which components are not part of the build
+export EXCLUDES
+
+.PHONY: all be_target le_target compare $(IBLS_C6X)
+
+all:
+	@echo must specify a target [ $(IBLS_C6X) ]
+
+
+
+be_target:
+	@echo EXCLUDES= $(EXCLUDES)
+	make -f makestg2 ARCH=c64x TARGET=$(TARGET) ENDIAN=big    I2C_SIZE_BYTES=$(I2C_SIZE_BYTES) I2C_BUS_ADDR=$(I2C_BUS_ADDR) INTERNAL_UTILS=$(INTERNAL_UTILS) SPI_DEFS='$(SPI_DEFS)' utils
+	make -f makestg2 ARCH=c64x TARGET=$(TARGET) ENDIAN=big    I2C_SIZE_BYTES=$(I2C_SIZE_BYTES) I2C_BUS_ADDR=$(I2C_BUS_ADDR) SPI_DEFS='$(SPI_DEFS)' $(TARGET)
+
+le_target:
+	make -f makestg2 ARCH=c64x TARGET=$(TARGET) ENDIAN=little I2C_SIZE_BYTES=$(I2C_SIZE_BYTES) I2C_BUS_ADDR=$(I2C_BUS_ADDR) INTERNAL_UTILS=$(INTERNAL_UTILS) SPI_DEFS='$(SPI_DEFS)' utils
+	make -f makestg2 ARCH=c64x TARGET=$(TARGET) ENDIAN=little I2C_SIZE_BYTES=$(I2C_SIZE_BYTES) I2C_BUS_ADDR=$(I2C_BUS_ADDR) SPI_DEFS='$(SPI_DEFS)' $(TARGET)
+
+compare:
+	make -f makestg2 ARCH=c64x TARGET=$(TARGET) compare
+
+
+$(IBLS_C6X): $(STAGE1_TARGET)
+	make -f makestg2 ARCH=c64x TARGET=$@ I2CROM=$(I2CROM) I2C_BUS_ADDR=$(I2C_BUS_ADDR) I2C_MAP_ADDRESS=$(I2C_MAP_ADDRESS) EVM=$(EVM) COMPACT_I2C=$(COMPACT_I2C) SPI_DEFS='$(SPI_DEFS)' $(ROMS)
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,152 @@
+=====================================================
+C6x Bootloader Build Instructions
+=====================================================
+
+1) Supported EVM's:
+    - C6678 LC EVM
+    - C6670 LC EVM
+    - C6474 LC EVM
+    - C6474 Mezzanine EVM
+    - C6472 LC EVM
+    - C6457 LC EVM
+    - DSK6455 EVM
+
+2) Supported ENDIAN
+    - big
+    - little
+
+3) Required toolset
+    - TI CGEN compiler CGT_C6000_7.2.0
+
+   Requirements for building IBL on Windows:
+   For building on a Windows machine, a GNU development environment is
+   required. MinGW installation is required for this. 
+   MinGW project link: http://www.mingw.org/
+   MinGW installer can be obtained from the following link
+   http://sourceforge.net/projects/mingw/files/Automated%20MinGW%20Installer/mingw-get-inst/mingw-get-inst-20110316/mingw-get-inst-20110316.exe/download
+   While installing MinGW following options have to be chosen:
+    1.  MinGw Compiler Suite
+        -   C Compiler
+    2. MinGW Developer Toolkit 
+ 
+4) Build Instructions
+
+    - Change directory to ibl\src\make
+    - Modify the environment setup script to match the tool chain installation
+      directory:
+        For building in MINGW-MSYS Bash shell modify setupenvMsys.sh 
+        For building in Linux Bash shell modify setupenvLnx.sh 
+    - Set the environment variables:
+         On a Linux Bash shell run  "source setupenvLnx.sh"
+         On a MinGW-MSYS Bash shell "source setupenvMsys.sh"
+    - Following are the commands for building IBL:
+
+	For C6657 Low Cost EVM:
+	
+        make evm_c6657_i2c ENDIAN=little I2C_BUS_ADDR=0x51 
+        Output images:
+        IBL image: bin/i2crom_0x51_c6657_le.dat (CCS data format)
+                 : bin/i2crom_0x51_c6657_le.bin (raw binary)
+
+        make evm_c6657_i2c ENDIAN=big I2C_BUS_ADDR=0x51 
+        Output images:
+        IBL image: bin/i2crom_0x51_c6657_be.dat (CCS data format)
+                 : bin/i2crom_0x51_c6657_be.bin (raw binary)
+
+
+        For C6678 Low Cost EVM:
+        
+	make evm_c6678_i2c ENDIAN=little I2C_BUS_ADDR=0x51 
+        Output images:
+        IBL image: bin/i2crom_0x51_c6678_le.dat (CCS data format)
+                 : bin/i2crom_0x51_c6678_le.bin (raw binary)
+
+	make evm_c6678_i2c ENDIAN=big I2C_BUS_ADDR=0x51 
+        Output images:
+        IBL image: bin/i2crom_0x51_c6678_be.dat (CCS data format)
+                 : bin/i2crom_0x51_c6678_be.bin (raw binary)
+
+      
+        For C6670 Low Cost EVM:
+	
+        make evm_c6670_i2c ENDIAN=little I2C_BUS_ADDR=0x51 
+        Output images:
+        IBL image: bin/i2crom_0x51_c6670_le.dat (CCS data format)
+                 : bin/i2crom_0x51_c6670_le.bin (raw binary)
+
+        make evm_c6670_i2c ENDIAN=big I2C_BUS_ADDR=0x51 
+        Output images:
+        IBL image: bin/i2crom_0x51_c6670_be.dat (CCS data format)
+                 : bin/i2crom_0x51_c6670_be.bin (raw binary)
+
+	
+
+	For C6474 LC EVM
+
+	make evm_c6474l ENDIAN=little 
+        Output images:
+        IBL image: bin/i2crom_0x50_c6474l_le.dat (CCS data format)
+                 : bin/i2crom_0x50_c6474l_le.bin (raw binary)
+
+        make evm_c6474l ENDIAN=big 
+        Output images:
+        IBL image: bin/i2crom_0x50_c6474l_be.dat (CCS data format)
+                 : bin/i2crom_0x50_c6474l_be.bin (raw binary)
+
+	For C6474 Mezzanine EVM
+
+	make evm_c6474 ENDIAN=little 
+        Output images:
+        IBL image: bin/i2crom_0x50_c6474_le.dat (CCS data format)
+                 : bin/i2crom_0x50_c6474_le.bin (raw binary)
+
+        make evm_c6474 ENDIAN=big 
+        Output images:
+        IBL image: bin/i2crom_0x50_c6474_be.dat (CCS data format)
+                 : bin/i2crom_0x50_c6474_be.bin (raw binary)
+
+	For C6472 LC EVM
+
+	make evm_c6472 ENDIAN=little 
+        Output images:
+        IBL image: bin/i2crom_0x50_c6472_le.dat (CCS data format)
+                 : bin/i2crom_0x50_c6472_le.bin (raw binary)
+
+        make evm_c6472 ENDIAN=big 
+        Output images:
+        IBL image: bin/i2crom_0x50_c6472_be.dat (CCS data format)
+                 : bin/i2crom_0x50_c6472_be.bin (raw binary)
+
+	For C6457 LC EVM
+
+	make evm_c6457 ENDIAN=little 
+        Output images:
+        IBL image: bin/i2crom_0x50_c6457_le.dat (CCS data format)
+                 : bin/i2crom_0x50_c6457_le.bin (raw binary)
+
+        make evm_c6457 ENDIAN=big 
+        Output images:
+        IBL image: bin/i2crom_0x50_c6457_be.dat (CCS data format)
+                 : bin/i2crom_0x50_c6457_be.bin (raw binary)
+
+
+	For DSK 6455 EVM
+
+	make evm_c6455 ENDIAN=little 
+        Output images:
+        IBL image: bin/i2crom_0x50_c6455_le.dat (CCS data format)
+                 : bin/i2crom_0x50_c6455_le.bin (raw binary)
+
+        make evm_c6455 ENDIAN=big 
+        Output images:
+        IBL image: bin/i2crom_0x50_c6455_be.dat (CCS data format)
+                 : bin/i2crom_0x50_c6455_be.bin (raw binary)
+
+
+	
+
+
+		 
+
+
+        

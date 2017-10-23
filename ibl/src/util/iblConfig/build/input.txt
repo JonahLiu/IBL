@@ -1,0 +1,10 @@
+file_name = ibl.bin
+device = 
+offset = 
+ethBoot-doBootp = 
+ethBoot-bootFormat = 
+ethBoot-ipAddr = 
+ethBoot-serverIp = 
+ethBoot-gatewayIp = 
+ethBoot-netmask = 
+ethBoot-fileName = 

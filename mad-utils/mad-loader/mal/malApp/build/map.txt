@@ -1,0 +1,461 @@
+******************************************************************************
+               TMS320C6x Linker Unix v7.4.0                    
+******************************************************************************
+>> Linked Mon Nov 19 18:26:27 2012
+
+OUTPUT FILE NAME:   <mal_app.exe>
+ENTRY POINT SYMBOL: "_enter"  address: 9e001040
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  BLOB_ENTER            9e001040   00000020  00000020  00000000  RWIX
+  PMEM0                 9e001060   00007b2c  00007b0c  00000020  RWIX
+  URW0                  9ffbb800   00042000  00041fec  00000014  RWIX
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+9e001040    9e001040    00007ae4   00007ae4    r-x
+  9e001040    9e001040    00000020   00000020    r-x .enter
+  9e001060    9e001060    00007340   00007340    r-x .text
+  9e0083a0    9e0083a0    0000070c   0000070c    r-- .const
+  9e008aac    9e008aac    00000078   00000078    r-- .switch
+9e008b24    9e008b24    00000048   00000048    rw-
+  9e008b24    9e008b24    00000048   00000048    rw- .fardata
+9ffbb800    9ffbb800    00041fec   00000000    rw-
+  9ffbb800    9ffbb800    00040000   00000000    rw- .sysmem
+  9fffb800    9fffb800    00001000   00000000    rw- .stack
+  9fffc800    9fffc800    00000fec   00000000    rw- .far
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.enter     0    9e001040    00000020     
+                  9e001040    00000020     entry.obj (.enter)
+
+.text      0    9e001060    00007340     
+                  9e001060    00002d80     malLib.a : dload.obj (.text)
+                  9e003de0    00000d60              : mal_lib_loader.obj (.text)
+                  9e004b40    00000ac0              : dlw_dsbt.obj (.text)
+                  9e005600    00000940              : symtab.obj (.text)
+                  9e005f40    000008e0              : mal_lib_file_utils.obj (.text)
+                  9e006820    00000400              : dload_endian.obj (.text)
+                  9e006c20    000002c0              : dlw_client.obj (.text)
+                  9e006ee0    00000280     rts6600_elf.lib : memory.obj (.text:free)
+                  9e007160    00000200     mal_app.obj (.text)
+                  9e007360    000001e0     malLib.a : ArrayList.obj (.text)
+                  9e007540    00000180              : c60_dynamic.obj (.text)
+                  9e0076c0    00000180     rts6600_elf.lib : memory.obj (.text:malloc)
+                  9e007840    00000100                     : autoinit.obj (.text:_auto_init_elf)
+                  9e007940    00000100                     : cpy_tbl.obj (.text:copy_in)
+                  9e007a40    000000e0                     : memset.obj (.text:memset)
+                  9e007b20    000000c0                     : divu.obj (.text:__divu)
+                  9e007be0    000000c0                     : exit.obj (.text:exit)
+                  9e007ca0    000000c0                     : tls.obj (.text:tls:init:__TI_tls_init)
+                  9e007d60    000000a0                     : remu.obj (.text:__remu)
+                  9e007e00    000000a0                     : memory.obj (.text:_minit)
+                  9e007ea0    000000a0                     : memcpy64.obj (.text:memcpy)
+                  9e007f40    000000a0                     : memory.obj (.text:minsert)
+                  9e007fe0    000000a0                     : memory.obj (.text:mremove)
+                  9e008080    00000080                     : boot.obj (.text:_c_int00)
+                  9e008100    00000060                     : cpp_init.obj (.text:__TI_cpp_init)
+                  9e008160    00000060                     : strcpy.obj (.text:strcpy)
+                  9e0081c0    00000060                     : strncmp.obj (.text:strncmp)
+                  9e008220    00000040                     : args_main.obj (.text:_args_main)
+                  9e008260    00000040     malLib.a : delay.obj (.text)
+                  9e0082a0    00000040     mal_lib_cb.obj (.text)
+                  9e0082e0    00000040     rts6600_elf.lib : strcmp.obj (.text:strcmp)
+                  9e008320    00000040                     : strlen.obj (.text:strlen)
+                  9e008360    00000020                     : _lock.obj (.text:_nop)
+                  9e008380    00000020                     : exit.obj (.text:abort)
+
+.const     0    9e0083a0    0000070c     
+                  9e0083a0    000003f8     malLib.a : dload.obj (.const:.string)
+                  9e008798    000001b8              : dlw_dsbt.obj (.const:.string)
+                  9e008950    00000078              : dlw_client.obj (.const:.string)
+                  9e0089c8    00000064              : symtab.obj (.const:.string)
+                  9e008a2c    00000004     --HOLE-- [fill = 0]
+                  9e008a30    00000030              : mal_lib_loader.obj (.const:.string:$P$T0$1)
+                  9e008a60    0000002c              : mal_lib_loader.obj (.const:.string)
+                  9e008a8c    0000000c              : mal_lib_file_utils.obj (.const:.string)
+                  9e008a98    0000000c     mal_app.obj (.const:.string)
+                  9e008aa4    00000008     malLib.a : dload.obj (.const)
+
+.switch    0    9e008aac    00000078     
+                  9e008aac    00000078     malLib.a : dload.obj (.switch:process_dynamic_table)
+
+.fardata   0    9e008b24    00000048     
+                  9e008b24    00000010     malLib.a : mal_lib_loader.obj (.fardata)
+                  9e008b34    0000000c     rts6600_elf.lib : exit.obj (.fardata)
+                  9e008b40    0000000c                     : memory.obj (.fardata)
+                  9e008b4c    00000008     malLib.a : dload.obj (.fardata)
+                  9e008b54    00000008              : mal_lib_file_utils.obj (.fardata)
+                  9e008b5c    00000008     rts6600_elf.lib : _lock.obj (.fardata)
+                  9e008b64    00000004     malLib.a : dlw_dsbt.obj (.fardata)
+                  9e008b68    00000004              : symtab.obj (.fardata)
+
+.sysmem    0    9ffbb800    00040000     UNINITIALIZED
+                  9ffbb800    00000008     rts6600_elf.lib : memory.obj (.sysmem)
+                  9ffbb808    0003fff8     --HOLE--
+
+.stack     0    9fffb800    00001000     UNINITIALIZED
+                  9fffb800    00000008     rts6600_elf.lib : boot.obj (.stack)
+                  9fffb808    00000ff8     --HOLE--
+
+.far       0    9fffc800    00000fec     UNINITIALIZED
+                  9fffc800    000007d4     malLib.a : mal_lib_loader.obj (.far)
+                  9fffcfd4    00000004     --HOLE--
+                  9fffcfd8    000007d0              : mal_lib_file_utils.obj (.far)
+                  9fffd7a8    00000028              : dload.obj (.far)
+                  9fffd7d0    0000001c              : dlw_dsbt.obj (.far)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+9e0073c4   AL_append
+9e007510   AL_destroy
+9e007360   AL_initialize
+9e0074f8   AL_size
+9e008380   C$$EXIT
+9e007540   DLDYN_c60_process_dynamic_tag
+9e007668   DLDYN_c60_process_eiosabi
+9e005220   DLIF_assign_dsbt_indices
+9e006e90   DLIF_error
+9e006d64   DLIF_execute
+9e006cb0   DLIF_fclose
+9e006c84   DLIF_fread
+9e006cec   DLIF_free
+9e006c34   DLIF_fseek
+9e006c64   DLIF_ftell
+9e005308   DLIF_get_dsbt_index
+9e006d80   DLIF_load_dependent
+9e006cd0   DLIF_malloc
+9e006d08   DLIF_read
+9e004d74   DLIF_register_dsbt_index_request
+9e006e28   DLIF_unload_dependent
+9e0053b0   DLIF_update_all_dsbts
+9e006e48   DLIF_warning
+9e006d50   DLIF_write
+9e008b68   DLIMP_application_handle
+9e006ae4   DLIMP_change_dynent_endian
+9e006930   DLIMP_change_ehdr_endian
+9e0068d0   DLIMP_change_endian16
+9e006844   DLIMP_change_endian32
+9e006a2c   DLIMP_change_phdr_endian
+9e006bd4   DLIMP_change_rel_endian
+9e006b84   DLIMP_change_rela_endian
+9e006b20   DLIMP_change_sym_endian
+9fffd7c4   DLIMP_dependency_stack
+9e006820   DLIMP_get_endian
+9e001458   DLIMP_get_first_dyntag
+9fffd7b8   DLIMP_loaded_objects
+9fffd7a8   DLIMP_module_dependency_list
+9e008b4c   DLOAD_TARGET_MACHINE
+9e003d4c   DLOAD_get_dsbt_base
+9e003c64   DLOAD_get_dsbt_size
+9e0034ac   DLOAD_get_entry_names
+9e0035f0   DLOAD_get_entry_point
+9e003cc8   DLOAD_get_static_base
+9e002db8   DLOAD_initialize
+9e003248   DLOAD_load
+9e003a38   DLOAD_load_symbols
+9e003654   DLOAD_query_symbol
+9e00390c   DLOAD_unload
+9e005e00   DLSYM_canonical_lookup
+9e005870   DLSYM_copy_globals
+9e005b68   DLSYM_global_lookup
+9e005da4   DLSYM_lookup_global_symtab
+9e005dd0   DLSYM_lookup_local_symtab
+9fffd7d0   DSBT_index_request_queue
+9fffd7dc   DSBT_master
+9e005510   DSBT_release_entry
+9e005710   Int32_dequeue
+9e00566c   Int32_enqueue
+9e005638   Int32_initialize_queue
+9e0057a0   Int32_remove
+UNDEFED    __TI_CINIT_Base
+UNDEFED    __TI_CINIT_Limit
+UNDEFED    __TI_Handler_Table_Base
+UNDEFED    __TI_Handler_Table_Limit
+UNDEFED    __TI_INITARRAY_Base
+UNDEFED    __TI_INITARRAY_Limit
+9fffc800   __TI_STACK_END
+00001000   __TI_STACK_SIZE
+00000000   __TI_STATIC_BASE
+00040000   __TI_SYSMEM_SIZE
+UNDEFED    __TI_TLS_INIT_Base
+UNDEFED    __TI_TLS_INIT_Limit
+00000001   __TI_args_main
+9e008100   __TI_cpp_init
+9e008b3c   __TI_enable_exit_profile_output
+ffffffff   __TI_pprof_out_hndl
+ffffffff   __TI_prof_data_size
+ffffffff   __TI_prof_data_start
+9e007ca0   __TI_tls_init
+ffffffff   __binit__
+9e007b20   __c6xabi_divu
+9e007d60   __c6xabi_remu
+ffffffff   __c_args__
+9e007b20   __divu
+9e008b58   __le__
+9e005f6c   __ntohl__
+9e007d60   __remu
+9e008220   _args_main
+9e007840   _auto_init_elf
+9e008080   _c_int00
+9e008b34   _cleanup_ptr
+9e008b38   _dtors_ptr
+9e001040   _enter
+9e008b5c   _lock
+9e007e00   _minit
+9e008360   _nop
+9fffb800   _stack
+9ffbb800   _sys_memory
+9e008b60   _unlock
+9e008380   abort
+9fffc800   activation_records
+ffffffff   binit
+9e008260   chipDelay32
+9e007940   copy_in
+9e004c14   dsbt_index_request_ptr_dequeue
+9e004b70   dsbt_index_request_ptr_enqueue
+9e004b40   dsbt_index_request_ptr_initialize_queue
+9e004ca4   dsbt_index_request_ptr_remove
+9e0012f0   dynamic_module_ptr_initialize_stack
+9e0013d0   dynamic_module_ptr_pop
+9e001324   dynamic_module_ptr_push
+9e007be0   exit
+9fffcfd8   file_nodes
+9e005f40   find_endianess
+9e006ee0   free
+9e001190   loaded_module_ptr_dequeue
+9e0010ec   loaded_module_ptr_enqueue
+9e0010b8   loaded_module_ptr_initialize_queue
+9e001220   loaded_module_ptr_remove
+9e007160   main
+9e0082b8   mal_lib_cb_free
+9e0082a0   mal_lib_cb_malloc
+9e006130   mal_lib_fclose
+9e006064   mal_lib_fopen
+9e00624c   mal_lib_fread
+9e005fc8   mal_lib_fs_init
+9e006354   mal_lib_fseek
+9e006198   mal_lib_fsize
+9e006438   mal_lib_ftell
+9e003ea4   mal_lib_init
+9e004070   mal_lib_load_core
+9e004944   mal_lib_record_ld_call
+9e004594   mal_lib_stop_core
+9e003de0   mal_wbinv_cache_block
+9e0076c0   malloc
+9e007ea0   memcpy
+9e007a40   memset
+9e008b24   next_ar_idx
+9e008b54   next_node_idx
+9e008b28   nml_ar_addr
+9e008b2c   nml_boot_status_addr
+9e008b30   nml_entry_point
+9e0082e0   strcmp
+9e008160   strcpy
+9e008320   strlen
+9e0081c0   strncmp
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_STATIC_BASE
+00000001   __TI_args_main
+00001000   __TI_STACK_SIZE
+00040000   __TI_SYSMEM_SIZE
+9e001040   _enter
+9e0010b8   loaded_module_ptr_initialize_queue
+9e0010ec   loaded_module_ptr_enqueue
+9e001190   loaded_module_ptr_dequeue
+9e001220   loaded_module_ptr_remove
+9e0012f0   dynamic_module_ptr_initialize_stack
+9e001324   dynamic_module_ptr_push
+9e0013d0   dynamic_module_ptr_pop
+9e001458   DLIMP_get_first_dyntag
+9e002db8   DLOAD_initialize
+9e003248   DLOAD_load
+9e0034ac   DLOAD_get_entry_names
+9e0035f0   DLOAD_get_entry_point
+9e003654   DLOAD_query_symbol
+9e00390c   DLOAD_unload
+9e003a38   DLOAD_load_symbols
+9e003c64   DLOAD_get_dsbt_size
+9e003cc8   DLOAD_get_static_base
+9e003d4c   DLOAD_get_dsbt_base
+9e003de0   mal_wbinv_cache_block
+9e003ea4   mal_lib_init
+9e004070   mal_lib_load_core
+9e004594   mal_lib_stop_core
+9e004944   mal_lib_record_ld_call
+9e004b40   dsbt_index_request_ptr_initialize_queue
+9e004b70   dsbt_index_request_ptr_enqueue
+9e004c14   dsbt_index_request_ptr_dequeue
+9e004ca4   dsbt_index_request_ptr_remove
+9e004d74   DLIF_register_dsbt_index_request
+9e005220   DLIF_assign_dsbt_indices
+9e005308   DLIF_get_dsbt_index
+9e0053b0   DLIF_update_all_dsbts
+9e005510   DSBT_release_entry
+9e005638   Int32_initialize_queue
+9e00566c   Int32_enqueue
+9e005710   Int32_dequeue
+9e0057a0   Int32_remove
+9e005870   DLSYM_copy_globals
+9e005b68   DLSYM_global_lookup
+9e005da4   DLSYM_lookup_global_symtab
+9e005dd0   DLSYM_lookup_local_symtab
+9e005e00   DLSYM_canonical_lookup
+9e005f40   find_endianess
+9e005f6c   __ntohl__
+9e005fc8   mal_lib_fs_init
+9e006064   mal_lib_fopen
+9e006130   mal_lib_fclose
+9e006198   mal_lib_fsize
+9e00624c   mal_lib_fread
+9e006354   mal_lib_fseek
+9e006438   mal_lib_ftell
+9e006820   DLIMP_get_endian
+9e006844   DLIMP_change_endian32
+9e0068d0   DLIMP_change_endian16
+9e006930   DLIMP_change_ehdr_endian
+9e006a2c   DLIMP_change_phdr_endian
+9e006ae4   DLIMP_change_dynent_endian
+9e006b20   DLIMP_change_sym_endian
+9e006b84   DLIMP_change_rela_endian
+9e006bd4   DLIMP_change_rel_endian
+9e006c34   DLIF_fseek
+9e006c64   DLIF_ftell
+9e006c84   DLIF_fread
+9e006cb0   DLIF_fclose
+9e006cd0   DLIF_malloc
+9e006cec   DLIF_free
+9e006d08   DLIF_read
+9e006d50   DLIF_write
+9e006d64   DLIF_execute
+9e006d80   DLIF_load_dependent
+9e006e28   DLIF_unload_dependent
+9e006e48   DLIF_warning
+9e006e90   DLIF_error
+9e006ee0   free
+9e007160   main
+9e007360   AL_initialize
+9e0073c4   AL_append
+9e0074f8   AL_size
+9e007510   AL_destroy
+9e007540   DLDYN_c60_process_dynamic_tag
+9e007668   DLDYN_c60_process_eiosabi
+9e0076c0   malloc
+9e007840   _auto_init_elf
+9e007940   copy_in
+9e007a40   memset
+9e007b20   __c6xabi_divu
+9e007b20   __divu
+9e007be0   exit
+9e007ca0   __TI_tls_init
+9e007d60   __c6xabi_remu
+9e007d60   __remu
+9e007e00   _minit
+9e007ea0   memcpy
+9e008080   _c_int00
+9e008100   __TI_cpp_init
+9e008160   strcpy
+9e0081c0   strncmp
+9e008220   _args_main
+9e008260   chipDelay32
+9e0082a0   mal_lib_cb_malloc
+9e0082b8   mal_lib_cb_free
+9e0082e0   strcmp
+9e008320   strlen
+9e008360   _nop
+9e008380   C$$EXIT
+9e008380   abort
+9e008b24   next_ar_idx
+9e008b28   nml_ar_addr
+9e008b2c   nml_boot_status_addr
+9e008b30   nml_entry_point
+9e008b34   _cleanup_ptr
+9e008b38   _dtors_ptr
+9e008b3c   __TI_enable_exit_profile_output
+9e008b4c   DLOAD_TARGET_MACHINE
+9e008b54   next_node_idx
+9e008b58   __le__
+9e008b5c   _lock
+9e008b60   _unlock
+9e008b68   DLIMP_application_handle
+9ffbb800   _sys_memory
+9fffb800   _stack
+9fffc800   __TI_STACK_END
+9fffc800   activation_records
+9fffcfd8   file_nodes
+9fffd7a8   DLIMP_module_dependency_list
+9fffd7b8   DLIMP_loaded_objects
+9fffd7c4   DLIMP_dependency_stack
+9fffd7d0   DSBT_index_request_queue
+9fffd7dc   DSBT_master
+ffffffff   __TI_pprof_out_hndl
+ffffffff   __TI_prof_data_size
+ffffffff   __TI_prof_data_start
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    __TI_CINIT_Base
+UNDEFED    __TI_CINIT_Limit
+UNDEFED    __TI_Handler_Table_Base
+UNDEFED    __TI_Handler_Table_Limit
+UNDEFED    __TI_INITARRAY_Base
+UNDEFED    __TI_INITARRAY_Limit
+UNDEFED    __TI_TLS_INIT_Base
+UNDEFED    __TI_TLS_INIT_Limit
+
+[180 symbols]
+
+
+DYNAMIC SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+UNDEFED    
+9fffc800   __TI_STACK_END
+00001000   __TI_STACK_SIZE
+00000000   __TI_STATIC_BASE
+00040000   __TI_SYSMEM_SIZE
+ffffffff   __TI_pprof_out_hndl
+ffffffff   __TI_prof_data_size
+ffffffff   __TI_prof_data_start
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+
+[11 symbols]
+
+
+IMPORTED and EXPORTED SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+IMPORTED SYMBOLS
+
+name                           size      Imported from
+-----------------------------  --------  -------------
+
+[0 symbols]
+
+
+EXPORTED SYMBOLS
+
+
+[0 symbols]

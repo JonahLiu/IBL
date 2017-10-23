@@ -1,0 +1,1 @@
+"./src/pcieboot_localreset.obj" -l"libc.a" "../pcieboot_localreset.cmd" 

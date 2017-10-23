@@ -1,0 +1,54 @@
+{
+	"deviceName" : "C6657",
+	
+	"partitions" : [
+		{
+			"name"			: "ddr-code",
+			"vaddr"			:  "0x9e000000",
+			"paddr"			: [ "0x81e000000", "0x81e000000" ],
+			"size"			: "0x1000000",
+			"secNamePat"  	: ["^.text", "const", "switch"],
+			"cores"			: [0,1],
+			"permissions"	: ["UR", "UX", "SR", "SX"],  
+			"cacheEnable"	: true,
+			"prefetch"      : true,
+			"priority"		: 0,
+			"shared"		: true,
+			"loadPartition" : true 
+		},
+		{
+			"name"			: "ddr-data",
+			"vaddr"			: "0xD0000000",
+			"paddr"			: [ "0x800000000", "0x801000000" ],
+			"size"			: "0x1000000",
+			"secNamePat"  	: ["stack", "^.far$", "args", "neardata", "fardata", "rodata" ],
+			"cores"			: [0,1],
+			"permissions"	: ["UR", "UW", "SR", "SW"],
+			"cacheEnable"	: true,
+			"prefetch"      : true,
+			"priority"		: 0,
+			"shared"		: false
+		}
+	],
+	
+	"applications" : [
+		{
+			"name"           : "app1",
+			"fileName"       : "../mad-loader/examples/app_1/build/app_1.exe",
+			"libPath"        : "../mad-loader/examples/shlibs/build",
+			"allowedCores"   : [0,1]
+		},
+		{
+			"name"           : "app2",
+			"fileName"       : "../mad-loader/examples/app_2/build/app_2.exe",
+			"libPath"        : "../mad-loader/examples/shlibs/build",
+			"allowedCores"   : [0,1]
+		}
+	],
+	
+	"appDeployment" : [
+		"app1",
+		"app2"
+	]
+}
+

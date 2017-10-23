@@ -1,0 +1,32 @@
+{
+	"deviceName" : "C6670",
+	
+	"partitions" : [
+		{
+			"name"			: "load-partition",
+			"vaddr"			: "0x9e000000",
+			"size"			: "0x2000000",
+			"loadPartition" : true 
+		}
+	],
+	
+	"applications" : [
+		{
+			"name"			 : "app1",
+			"fileName"       : "../mad-loader/examples/app_1/build/app_1.exe",
+			"allowedCores"   : [0,1,2,3]
+		},
+		{
+			"name"			 : "app2",
+			"fileName"       : "../mad-loader/examples/app_2/build/app_2.exe",
+			"allowedCores"   : [0,1,2,3]
+		}
+	],
+	
+	"appDeployment" : [
+		"app1",
+		"app2",
+		"app1",
+		"app2"
+	]
+}

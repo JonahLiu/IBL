@@ -1,0 +1,69 @@
+{
+	"deviceName" : "C6670",
+	
+	"partitions" : [
+		{
+			"name"		: "DDR3-ROMFS",
+			"vaddr"		:  "0x80000000",
+			"paddr"		: [ "0x800000000", "0x800000000", "0x800000000", "0x800000000"] ,
+			"size"		: "0x2000000",
+			"secNamePat"  	: ["text", "switch", "cinit", "const"],
+			"cores"		: [0,1,2,3],
+			"permissions"	: ["SR", "SX", "SW"],  
+			"cacheEnable"	: true,
+			"prefetch"      : true,
+			"priority"	: 0,
+			"shared"	: true,
+			"loadPartition" : true 
+		},
+		{
+			"name"		: "MSMCSRAM",
+			"vaddr"		: "0xc000000",
+			"paddr"		: [ "0xc000000"],
+			"size"		: "0x100000",
+			"secNamePat"  	: ["NDK_PACKETMEM"],
+			"cores"		: [0],
+			"permissions"	: ["SR", "SW", "SX"],
+			"cacheEnable"	: true,
+			"prefetch"      : true,
+			"priority"	: 0,
+			"shared"	: false
+		},
+		{
+			"name"		: "L2SRAM",
+			"vaddr"		: "0x800000",
+			"paddr"		: [ "0x800000", "0x800000", "0x800000", "0x800000" ],
+			"size"		: "0x100000",
+			"secNamePat"  	: [ "resmgr", "cio", "args", "cppi", "qmss", "far", "bss", "neardata", "rodata", "systemHeap", "stack", "vecs", "NDK_OBJMEM", "nimu_eth_ll2", "sysmem", "platform_lib"],
+			"cores"		: [0,1,2,3],
+			"permissions"	: ["UR", "UW", "UX", "SR", "SW", "SX"],
+			"cacheEnable"	: false,
+			"prefetch"      : false,
+			"priority"	: 0,
+			"shared"	: false
+		}
+    ],
+	
+	"applications" : [
+		{
+			"name"		 : "master",
+			"fileName"       : "../../../../../../examples/ndk/client/scbp6618x/DebugBE/client_scbp6618x.out",
+			"libPath"        : "../../../../../../examples/ndk/client/scbp6618x/DebugBE",
+			"allowedCores"   : [0]
+		},
+		{
+			"name"		 : "slave",
+			"fileName"       : "../../mad_helloworld/scbp6618x/DebugBE/mad_helloworld_scbp6618x.out",
+			"libPath"        : "../../mad_helloworld/scbp6618x/DebugBE",
+			"allowedCores"   : [1,2,3]
+		}
+	],
+	
+	"appDeployment" : [
+		"master",
+		"slave",
+		"slave",
+		"slave"
+	]
+}
+

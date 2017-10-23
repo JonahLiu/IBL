@@ -1,0 +1,33 @@
+{
+	"deviceName" : "C6657",
+	
+	"partitions" : [
+		{
+			"name"			: "ddr-code",
+			"vaddr"			:  "0x9e000000",
+			"size"			: "0x1000000",
+			"loadPartition" : true 
+		}
+	],
+	
+	"applications" : [
+		{
+			"name"           : "app1",
+			"fileName"       : "../mad-loader/examples/app_1/build/app_1.exe",
+			"libPath"        : "../mad-loader/examples/shlibs/build",
+			"allowedCores"   : [0,1]
+		},
+		{
+			"name"           : "app2",
+			"fileName"       : "../mad-loader/examples/app_2/build/app_2.exe",
+			"libPath"        : "../mad-loader/examples/shlibs/build",
+			"allowedCores"   : [0,1]
+		}
+	],
+	
+	"appDeployment" : [
+		"app1",
+		"app2"
+	]
+}
+

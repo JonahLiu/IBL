@@ -1,0 +1,15 @@
+simple.out
+-a
+-boot
+-e _c_int00
+-order L
+
+ROMS
+{
+   ROM1:  org = 0x0400, length = 0x0080, memwidth = 32, romwidth = 32
+          files = { simple.btbl }
+          
+}          
+          
+          
+          

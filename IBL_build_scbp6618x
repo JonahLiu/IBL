@@ -1,0 +1,22 @@
+cd ibl_scbp6618x/src/make
+
+source setupenvMsys.sh
+make scbp_c6618 ENDIAN=little
+
+cp -f ibl_scbp_c6618/ibl_scbp_c6618.le.eth ../../ibl_scbp_c6618.le.eth
+cp -f ibl_scbp_c6618/ibl_scbp_c6618.le.out ../../ibl_scbp_c6618.le.out
+
+make clean
+
+make scbp_c6618 ENDIAN=big
+cp -f ibl_scbp_c6618/ibl_scbp_c6618.be.eth ../../ibl_scbp_c6618.be.eth
+cp -f ibl_scbp_c6618/ibl_scbp_c6618.be.out ../../ibl_scbp_c6618.be.out
+make clean
+
+mv -f ../../ibl_scbp_c6618.le.eth bin/ibl_scbp_c6618.le.eth
+mv -f ../../ibl_scbp_c6618.be.eth bin/ibl_scbp_c6618.be.eth
+mv -f ../../ibl_scbp_c6618.le.out bin/ibl_scbp_c6618.le.out
+mv -f ../../ibl_scbp_c6618.be.out bin/ibl_scbp_c6618.be.out
+
+cd ../../../
+

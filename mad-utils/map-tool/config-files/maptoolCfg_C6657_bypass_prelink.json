@@ -1,0 +1,9 @@
+{
+	"deploymentCfgFile" 	: "./config-files/deployment_template_C6657_bypass_prelink.json",
+	"LoadImageName"			: "c6657-le.bin",
+	"prelinkExe"			: "prelink6x",
+	"ofdTool"				: "ofd6x",
+	"stripExe"			    : "strip6x",
+	"malApp"                : "../mad-loader/bin/C6657/le/mal_app.exe",
+	"nmlLoader"             : "../mad-loader/bin/C6657/le/nml.exe"
+}

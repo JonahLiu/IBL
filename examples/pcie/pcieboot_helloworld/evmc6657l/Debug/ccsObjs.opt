@@ -1,0 +1,1 @@
+"./src/pcieboot_helloworld.obj" -l"ti.platform.evm6657l.ae66" -l"libc.a" "../pcieboot_helloworld.cmd" 

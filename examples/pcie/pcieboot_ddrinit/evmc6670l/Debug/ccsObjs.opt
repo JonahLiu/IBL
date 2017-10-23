@@ -1,0 +1,1 @@
+"./src/pcieboot_ddrinit.obj" -l"ti.platform.evm6670l.ae66" -l"libc.a" "../pcieboot_ddrinit.cmd" 
