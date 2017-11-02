@@ -1,6 +1,6 @@
 ;******************************************************************************
 ;* TMS320C6x C/C++ Codegen                                          PC v7.3.4 *
-;* Date/Time created: Thu Nov 02 12:56:06 2017                                *
+;* Date/Time created: Thu Nov 02 23:19:14 2017                                *
 ;******************************************************************************
 	.compiler_opts --abi=coffabi --c64p_l1d_workaround=default --endian=little --hll_source=on --long_precision_bits=40 --mem_model:code=far --mem_model:const=data --mem_model:data=far --object_format=coff --predefine_memory_model_macros --silicon_version=6500 --symdebug:dwarf 
 
@@ -160,7 +160,7 @@ $C$DW$31	.dwtag  DW_TAG_variable, DW_AT_name("configAddress")
 	.dwattr $C$DW$31, DW_AT_location[DW_OP_addr _configAddress]
 	.dwattr $C$DW$31, DW_AT_type(*$C$DW$T$11)
 	.dwattr $C$DW$31, DW_AT_external
-;	D:\App\CCS5.2.1.00018\ccsv5\tools\compiler\c6000_7.3.4\bin\opt6x.exe D:\\Tools\\msys32\\tmp\\0769212 D:\\Tools\\msys32\\tmp\\076924 
+;	D:\App\CCS5.2.1.00018\ccsv5\tools\compiler\c6000_7.3.4\bin\opt6x.exe D:\\Tools\\msys32\\tmp\\0702412 D:\\Tools\\msys32\\tmp\\070244 
 	.sect	".text"
 	.clink
 	.global	_showI2cError
@@ -539,7 +539,7 @@ $C$DW$46	.dwtag  DW_TAG_TI_branch
            ; BRANCH OCCURS {B3}              ; |i2cparam.c:97| 
 
 $C$DW$47	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$47, DW_AT_name("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig\i2cparam.asm:$C$L10:1:1509598566")
+	.dwattr $C$DW$47, DW_AT_name("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig\i2cparam.asm:$C$L10:1:1509635954")
 	.dwattr $C$DW$47, DW_AT_TI_begin_file("i2cparam.c")
 	.dwattr $C$DW$47, DW_AT_TI_begin_line(0x5a)
 	.dwattr $C$DW$47, DW_AT_TI_end_line(0x5f)
@@ -816,7 +816,7 @@ $C$DW$63	.dwtag  DW_TAG_TI_branch
            ; BRANCH OCCURS {B3}              ; |i2cparam.c:168| 
 
 $C$DW$64	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$64, DW_AT_name("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig\i2cparam.asm:$C$L16:1:1509598566")
+	.dwattr $C$DW$64, DW_AT_name("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig\i2cparam.asm:$C$L16:1:1509635954")
 	.dwattr $C$DW$64, DW_AT_TI_begin_file("i2cparam.c")
 	.dwattr $C$DW$64, DW_AT_TI_begin_line(0x9f)
 	.dwattr $C$DW$64, DW_AT_TI_end_line(0xa0)
@@ -1058,7 +1058,7 @@ $C$DW$78	.dwtag  DW_TAG_TI_branch
            MVK     .L2     0x6,B4            ; |i2cparam.c:204| 
            ADDKPC  .S2     $C$RL5,B3,1       ; |i2cparam.c:204| 
 
-           MVK     .S1     0x25,A6           ; |i2cparam.c:204| 
+           MVK     .S1     0x32,A6           ; |i2cparam.c:204| 
 ||         MVK     .L2     0xa,B6            ; |i2cparam.c:204| 
 
 $C$RL5:    ; CALL OCCURS {_hwI2Cinit} {0}    ; |i2cparam.c:204| 
@@ -1466,7 +1466,7 @@ $C$DW$90	.dwtag  DW_TAG_TI_branch
            ; BRANCH OCCURS {B3}  
 
 $C$DW$91	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$91, DW_AT_name("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig\i2cparam.asm:$C$L21:1:1509598566")
+	.dwattr $C$DW$91, DW_AT_name("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig\i2cparam.asm:$C$L21:1:1509635954")
 	.dwattr $C$DW$91, DW_AT_TI_begin_file("i2cparam.c")
 	.dwattr $C$DW$91, DW_AT_TI_begin_line(0xdd)
 	.dwattr $C$DW$91, DW_AT_TI_end_line(0xf4)
@@ -1487,7 +1487,7 @@ $C$DW$96	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$96, DW_AT_high_pc($C$DW$L$_main$12$E)
 
 $C$DW$97	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$97, DW_AT_name("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig\i2cparam.asm:$C$L23:2:1509598566")
+	.dwattr $C$DW$97, DW_AT_name("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig\i2cparam.asm:$C$L23:2:1509635954")
 	.dwattr $C$DW$97, DW_AT_TI_begin_file("i2cparam.c")
 	.dwattr $C$DW$97, DW_AT_TI_begin_line(0xf0)
 	.dwattr $C$DW$97, DW_AT_TI_end_line(0xf0)

@@ -356,7 +356,7 @@ void targetSgmiiSerdesConfig (int32 port, void *cfg);
  *  @brief
  *      Support for enabling EDC for internal memory.
  */
-#define IBL_ENABLE_EDC             0 
+#define IBL_ENABLE_EDC             1 
 
 /**
  *  @brief

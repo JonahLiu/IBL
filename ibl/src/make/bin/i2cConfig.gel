@@ -1213,9 +1213,9 @@ hotmenu setConfig_c6657_main()
 	/* DDR PLL: */ /* updated for PR6100 */
 	ibl.pllConfig[ibl_DDR_PLL].doEnable       = 1; 
 	ibl.pllConfig[ibl_DDR_PLL].prediv         = 1;
-	ibl.pllConfig[ibl_DDR_PLL].mult           = 20;
+	ibl.pllConfig[ibl_DDR_PLL].mult           = 12;
 	ibl.pllConfig[ibl_DDR_PLL].postdiv        = 2;
-	ibl.pllConfig[ibl_DDR_PLL].pllOutFreqMhz  = 1333;
+	ibl.pllConfig[ibl_DDR_PLL].pllOutFreqMhz  = 800;
 
     /* Net PLL: 100 MHz reference, 1050 MHz output (followed by a built in divide by 3 to give 350 MHz to PA) */
 
@@ -1227,10 +1227,10 @@ hotmenu setConfig_c6657_main()
 
 	ibl.ddrConfig.uEmif.emif4p0.sdRamConfig				= 0x63066AB2;
 	ibl.ddrConfig.uEmif.emif4p0.sdRamConfig2			= 0;
-	ibl.ddrConfig.uEmif.emif4p0.sdRamRefreshCtl			= 0x00001458;
-	ibl.ddrConfig.uEmif.emif4p0.sdRamTiming1			= 0x133367E4;
-	ibl.ddrConfig.uEmif.emif4p0.sdRamTiming2			= 0x30B37FE3;
-	ibl.ddrConfig.uEmif.emif4p0.sdRamTiming3 			= 0x559F8ADF;
+	ibl.ddrConfig.uEmif.emif4p0.sdRamRefreshCtl			= 0x00000C34;
+	ibl.ddrConfig.uEmif.emif4p0.sdRamTiming1			= 0x0AAAE523;
+	ibl.ddrConfig.uEmif.emif4p0.sdRamTiming2			= 0x206B7FDA;
+	ibl.ddrConfig.uEmif.emif4p0.sdRamTiming3 			= 0x557F867F;
 	ibl.ddrConfig.uEmif.emif4p0.lpDdrNvmTiming			= 0;
 	ibl.ddrConfig.uEmif.emif4p0.powerManageCtl			= 0;
 	ibl.ddrConfig.uEmif.emif4p0.iODFTTestLogic			= 0;
@@ -1268,10 +1268,10 @@ hotmenu setConfig_c6657_main()
 
         ibl.spiConfig.addrWidth  = 24;
 	ibl.spiConfig.nPins      = 5;
-	ibl.spiConfig.mode       = 1;	/* TODO: Confirm SPI Mode */
+	ibl.spiConfig.mode       = 2;	
 	ibl.spiConfig.csel       = 2;
-	ibl.spiConfig.c2tdelay   = 1;
-	ibl.spiConfig.busFreqMHz = 20;
+	ibl.spiConfig.c2tdelay   = 0;
+	ibl.spiConfig.busFreqMHz = 50;
 
 	ibl.emifConfig[0].csSpace    = 2;
 	ibl.emifConfig[0].busWidth   = 8;
@@ -1285,18 +1285,18 @@ hotmenu setConfig_c6657_main()
 	ibl.bootModes[0].priority = ibl_HIGHEST_PRIORITY;
 	ibl.bootModes[0].port     = 0;
 
-	ibl.bootModes[0].u.norBoot.bootFormat	= ibl_BOOT_FORMAT_ELF;
+	ibl.bootModes[0].u.norBoot.bootFormat	= ibl_BOOT_FORMAT_BBLOB;
 	ibl.bootModes[0].u.norBoot.bootAddress[0][0]	= 0;		/* Image 0 NOR offset byte address in LE mode */ 
 	ibl.bootModes[0].u.norBoot.bootAddress[0][1]	= 0xA00000;	/* Image 1 NOR offset byte address in LE mode  */
 	ibl.bootModes[0].u.norBoot.bootAddress[1][0]	= 0;		/* Image 0 NOR offset byte address in BE mode */ 
 	ibl.bootModes[0].u.norBoot.bootAddress[1][1]	= 0xA00000;	/* Image 1 NOR offset byte address in BE mode  */
 	ibl.bootModes[0].u.norBoot.interface	= ibl_PMEM_IF_SPI;
-    ibl.bootModes[0].u.norBoot.blob[0][0].startAddress  = 0x80000000;       /* Image 0 load start address in LE mode */
+    ibl.bootModes[0].u.norBoot.blob[0][0].startAddress  = 0x9e000000;       /* Image 0 load start address in LE mode */
     ibl.bootModes[0].u.norBoot.blob[0][0].sizeBytes     = 0xA00000;         /* Image 0 size (10 MB) in LE mode */
-    ibl.bootModes[0].u.norBoot.blob[0][0].branchAddress = 0x80000000;       /* Image 0 branch address after loading in LE mode */
-    ibl.bootModes[0].u.norBoot.blob[0][1].startAddress  = 0x80000000;       /* Image 1 load start address in LE mode */
+    ibl.bootModes[0].u.norBoot.blob[0][0].branchAddress = 0x9e000000;       /* Image 0 branch address after loading in LE mode */
+    ibl.bootModes[0].u.norBoot.blob[0][1].startAddress  = 0x9e000000;       /* Image 1 load start address in LE mode */
     ibl.bootModes[0].u.norBoot.blob[0][1].sizeBytes     = 0xA00000;         /* Image 1 size (10 MB) in LE mode */
-    ibl.bootModes[0].u.norBoot.blob[0][1].branchAddress = 0x80000000;       /* Image 1 branch address after loading in LE mode */
+    ibl.bootModes[0].u.norBoot.blob[0][1].branchAddress = 0x9e000000;       /* Image 1 branch address after loading in LE mode */
     ibl.bootModes[0].u.norBoot.blob[1][0].startAddress  = 0x80000000;       /* Image 0 load start address in BE mode */
     ibl.bootModes[0].u.norBoot.blob[1][0].sizeBytes     = 0xA00000;         /* Image 0 size (10 MB) in BE mode */
     ibl.bootModes[0].u.norBoot.blob[1][0].branchAddress = 0x80000000;       /* Image 0 branch address after loading in BE mode */
