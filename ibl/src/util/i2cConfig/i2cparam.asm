@@ -1,17 +1,17 @@
 ;******************************************************************************
-;* TMS320C6x C/C++ Codegen                                        Unix v7.4.0 *
-;* Date/Time created: Mon Nov 19 16:35:49 2012                                *
+;* TMS320C6x C/C++ Codegen                                          PC v7.3.4 *
+;* Date/Time created: Thu Nov 02 12:56:06 2017                                *
 ;******************************************************************************
-	.compiler_opts --abi=coffabi --c64p_l1d_workaround=default --endian=big --hll_source=on --long_precision_bits=40 --mem_model:code=far --mem_model:const=data --mem_model:data=far --object_format=coff --predefine_memory_model_macros --silicon_version=6500 --symdebug:dwarf 
+	.compiler_opts --abi=coffabi --c64p_l1d_workaround=default --endian=little --hll_source=on --long_precision_bits=40 --mem_model:code=far --mem_model:const=data --mem_model:data=far --object_format=coff --predefine_memory_model_macros --silicon_version=6500 --symdebug:dwarf 
 
 ;******************************************************************************
 ;* GLOBAL FILE PARAMETERS                                                     *
 ;*                                                                            *
 ;*   Architecture      : TMS320C64x+                                          *
 ;*   Optimization      : Enabled at level 2                                   *
-;*   Optimizing for    : Size                                                 *
-;*                       Based on options: -o2, -ms3                          *
-;*   Endian            : Big                                                  *
+;*   Optimizing for    : Speed                                                *
+;*                       Based on options: -o2, no -ms                        *
+;*   Endian            : Little                                               *
 ;*   Interrupt Thrshld : 200                                                  *
 ;*   Data Access Model : Far                                                  *
 ;*   Pipelining        : Enabled                                              *
@@ -28,9 +28,9 @@
 
 
 $C$DW$CU	.dwtag  DW_TAG_compile_unit
-	.dwattr $C$DW$CU, DW_AT_producer("TMS320C6x C/C++ Codegen Unix v7.4.0 Copyright (c) 1996-2012 Texas Instruments Incorporated")
+	.dwattr $C$DW$CU, DW_AT_producer("TMS320C6x C/C++ Codegen PC v7.3.4 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("/home/gtbldadm/ti/mcsdk_2_01_02_06/tools/boot_loader/ibl/src/util/i2cConfig")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig")
 ;*****************************************************************************
 ;* CINIT RECORDS                                                             *
 ;*****************************************************************************
@@ -160,7 +160,7 @@ $C$DW$31	.dwtag  DW_TAG_variable, DW_AT_name("configAddress")
 	.dwattr $C$DW$31, DW_AT_location[DW_OP_addr _configAddress]
 	.dwattr $C$DW$31, DW_AT_type(*$C$DW$T$11)
 	.dwattr $C$DW$31, DW_AT_external
-;	opt6x /tmp/18912JCXJTA /tmp/18912vRG2rh 
+;	D:\App\CCS5.2.1.00018\ccsv5\tools\compiler\c6000_7.3.4\bin\opt6x.exe D:\\Tools\\msys32\\tmp\\0769212 D:\\Tools\\msys32\\tmp\\076924 
 	.sect	".text"
 	.clink
 	.global	_showI2cError
@@ -539,7 +539,7 @@ $C$DW$46	.dwtag  DW_TAG_TI_branch
            ; BRANCH OCCURS {B3}              ; |i2cparam.c:97| 
 
 $C$DW$47	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$47, DW_AT_name("/home/gtbldadm/ti/mcsdk_2_01_02_06/tools/boot_loader/ibl/src/util/i2cConfig/i2cparam.asm:$C$L10:1:1353360949")
+	.dwattr $C$DW$47, DW_AT_name("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig\i2cparam.asm:$C$L10:1:1509598566")
 	.dwattr $C$DW$47, DW_AT_TI_begin_file("i2cparam.c")
 	.dwattr $C$DW$47, DW_AT_TI_begin_line(0x5a)
 	.dwattr $C$DW$47, DW_AT_TI_end_line(0x5f)
@@ -816,7 +816,7 @@ $C$DW$63	.dwtag  DW_TAG_TI_branch
            ; BRANCH OCCURS {B3}              ; |i2cparam.c:168| 
 
 $C$DW$64	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$64, DW_AT_name("/home/gtbldadm/ti/mcsdk_2_01_02_06/tools/boot_loader/ibl/src/util/i2cConfig/i2cparam.asm:$C$L16:1:1353360949")
+	.dwattr $C$DW$64, DW_AT_name("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig\i2cparam.asm:$C$L16:1:1509598566")
 	.dwattr $C$DW$64, DW_AT_TI_begin_file("i2cparam.c")
 	.dwattr $C$DW$64, DW_AT_TI_begin_line(0x9f)
 	.dwattr $C$DW$64, DW_AT_TI_end_line(0xa0)
@@ -896,12 +896,12 @@ _main:
 	.dwcfi	save_reg_to_mem, 14, -16
            STDW    .D2T1   A13:A12,*SP--     ; |i2cparam.c:173| 
 	.dwcfi	cfa_offset, 32
-	.dwcfi	save_reg_to_mem, 12, -20
-	.dwcfi	save_reg_to_mem, 13, -24
+	.dwcfi	save_reg_to_mem, 13, -20
+	.dwcfi	save_reg_to_mem, 12, -24
            STDW    .D2T1   A11:A10,*SP--     ; |i2cparam.c:173| 
 	.dwcfi	cfa_offset, 40
-	.dwcfi	save_reg_to_mem, 10, -28
-	.dwcfi	save_reg_to_mem, 11, -32
+	.dwcfi	save_reg_to_mem, 11, -28
+	.dwcfi	save_reg_to_mem, 10, -32
            ADDK    .S2     -224,SP           ; |i2cparam.c:173| 
 	.dwcfi	cfa_offset, 264
 $C$DW$67	.dwtag  DW_TAG_variable, DW_AT_name("chk")
@@ -915,11 +915,11 @@ $C$DW$68	.dwtag  DW_TAG_variable, DW_AT_name("currentOffset")
 $C$DW$69	.dwtag  DW_TAG_variable, DW_AT_name("n")
 	.dwattr $C$DW$69, DW_AT_TI_symbol_name("_n")
 	.dwattr $C$DW$69, DW_AT_type(*$C$DW$T$138)
-	.dwattr $C$DW$69, DW_AT_location[DW_OP_reg11]
+	.dwattr $C$DW$69, DW_AT_location[DW_OP_reg10]
 $C$DW$70	.dwtag  DW_TAG_variable, DW_AT_name("iret")
 	.dwattr $C$DW$70, DW_AT_TI_symbol_name("_iret")
 	.dwattr $C$DW$70, DW_AT_type(*$C$DW$T$81)
-	.dwattr $C$DW$70, DW_AT_location[DW_OP_reg10]
+	.dwattr $C$DW$70, DW_AT_location[DW_OP_reg11]
 $C$DW$71	.dwtag  DW_TAG_variable, DW_AT_name("writeBlock")
 	.dwattr $C$DW$71, DW_AT_TI_symbol_name("_writeBlock")
 	.dwattr $C$DW$71, DW_AT_type(*$C$DW$T$110)
@@ -946,9 +946,9 @@ $C$DW$73	.dwtag  DW_TAG_variable, DW_AT_name("i")
 ; 188 |   printf ("       twice. The value 0 is invalid for configAddress\n"); 
 ; 189 |   return;                                                              
 ;----------------------------------------------------------------------
-           MVKL    .S1     _configAddress,A13
-           MVKH    .S1     _configAddress,A13
-           MV      .L1     A13,A4
+           MVKL    .S1     _configAddress,A14
+           MVKH    .S1     _configAddress,A14
+           MV      .L1     A14,A4
            LDW     .D1T1   *A4,A0            ; |i2cparam.c:183| 
            NOP             4
    [!A0]   BNOP    .S1     $C$L27,5          ; |i2cparam.c:183| 
@@ -981,14 +981,14 @@ $C$RL1:    ; CALL OCCURS {_memset} {0}       ; |i2cparam.c:192|
 ; 194 | printf ("Run the GEL for for the device to be configured, press return
 ;     | to program the I2C\n");                                                
 ;----------------------------------------------------------------------
-           MVKL    .S1     _printf,A14
-           MVKH    .S1     _printf,A14
+           MVKL    .S1     _printf,A13
+           MVKH    .S1     _printf,A13
            MVKL    .S1     $C$SL8+0,A0
 $C$DW$75	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$75, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$75, DW_AT_name("_printf")
 	.dwattr $C$DW$75, DW_AT_TI_call
-           CALL    .S2X    A14               ; |i2cparam.c:194| 
+           CALL    .S2X    A13               ; |i2cparam.c:194| 
            MVKH    .S1     $C$SL8+0,A0
            ADDKPC  .S2     $C$RL2,B3,2       ; |i2cparam.c:194| 
            STW     .D2T1   A0,*+SP(4)        ; |i2cparam.c:194| 
@@ -997,13 +997,14 @@ $C$RL2:    ; CALL OCCURS {_printf} {0}       ; |i2cparam.c:194|
 ;----------------------------------------------------------------------
 ; 195 | getchar ();                                                            
 ;----------------------------------------------------------------------
-           MVKL    .S2     _getchar,B4
-           MVKH    .S2     _getchar,B4
+           MVKL    .S1     _getchar,A3
+           MVKH    .S1     _getchar,A3
+           NOP             1
 $C$DW$76	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$76, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$76, DW_AT_name("_getchar")
 	.dwattr $C$DW$76, DW_AT_TI_call
-           CALL    .S2     B4                ; |i2cparam.c:195| 
+           CALL    .S2X    A3                ; |i2cparam.c:195| 
            ADDKPC  .S2     $C$RL3,B3,4       ; |i2cparam.c:195| 
 $C$RL3:    ; CALL OCCURS {_getchar} {0}      ; |i2cparam.c:195| 
 	.dwpsn	file "i2cparam.c",line 198,column 5,is_stmt
@@ -1021,16 +1022,16 @@ $C$RL3:    ; CALL OCCURS {_getchar} {0}      ; |i2cparam.c:195|
            MVKH    .S1     _hwPllSetPll,A3
 ||         MV      .L1     A12,A4
 
-           LDW     .D1T2   *+A4(8),B4        ; |i2cparam.c:198| 
+           LDW     .D1T2   *+A4(16),B6       ; |i2cparam.c:198| 
 $C$DW$77	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$77, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$77, DW_AT_name("_hwPllSetPll")
 	.dwattr $C$DW$77, DW_AT_TI_call
 
            CALL    .S2X    A3                ; |i2cparam.c:198| 
-||         LDW     .D1T2   *+A4(16),B6       ; |i2cparam.c:198| 
+||         LDW     .D1T1   *+A4(12),A6       ; |i2cparam.c:198| 
 
-           LDW     .D1T1   *+A4(12),A6       ; |i2cparam.c:198| 
+           LDW     .D1T2   *+A4(8),B4        ; |i2cparam.c:198| 
            ADDKPC  .S2     $C$RL4,B3,2       ; |i2cparam.c:198| 
            ZERO    .L1     A4                ; |i2cparam.c:198| 
 $C$RL4:    ; CALL OCCURS {_hwPllSetPll} {0}  ; |i2cparam.c:198| 
@@ -1053,11 +1054,11 @@ $C$DW$78	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$78, DW_AT_name("_hwI2Cinit")
 	.dwattr $C$DW$78, DW_AT_TI_call
            CALL    .S2X    A3                ; |i2cparam.c:204| 
-           LDHU    .D1T1   *+A4(22),A4       ; |i2cparam.c:204| 
+           LDHU    .D1T1   *+A4(20),A4       ; |i2cparam.c:204| 
            MVK     .L2     0x6,B4            ; |i2cparam.c:204| 
            ADDKPC  .S2     $C$RL5,B3,1       ; |i2cparam.c:204| 
 
-           MVK     .L1     0xc,A6            ; |i2cparam.c:204| 
+           MVK     .S1     0x25,A6           ; |i2cparam.c:204| 
 ||         MVK     .L2     0xa,B6            ; |i2cparam.c:204| 
 
 $C$RL5:    ; CALL OCCURS {_hwI2Cinit} {0}    ; |i2cparam.c:204| 
@@ -1076,16 +1077,16 @@ $C$RL5:    ; CALL OCCURS {_hwI2Cinit} {0}    ; |i2cparam.c:204|
 ; 212 | chk = onesComplementChksum ((uint16 *)&ibl, sizeof(ibl_t)/sizeof(uint16
 ;     | ));                                                                    
 ;----------------------------------------------------------------------
-           MVKL    .S2     _onesComplementChksum,B6
-           MVKH    .S2     _onesComplementChksum,B6
+           MVKL    .S1     _onesComplementChksum,A3
+           MVKH    .S1     _onesComplementChksum,A3
+           MVK     .S2     0x76,B4
 $C$DW$79	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$79, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$79, DW_AT_name("_onesComplementChksum")
 	.dwattr $C$DW$79, DW_AT_TI_call
-           CALL    .S2     B6                ; |i2cparam.c:212| 
-           MVK     .S2     0x76,B4
+           CALL    .S2X    A3                ; |i2cparam.c:212| 
            SET     .S2     B4,0x8,0x8,B4
-           ADDKPC  .S2     $C$RL6,B3,1       ; |i2cparam.c:212| 
+           ADDKPC  .S2     $C$RL6,B3,2       ; |i2cparam.c:212| 
            MV      .L1     A12,A4            ; |i2cparam.c:212| 
 $C$RL6:    ; CALL OCCURS {_onesComplementChksum} {0}  ; |i2cparam.c:212| 
 	.dwpsn	file "i2cparam.c",line 213,column 5,is_stmt
@@ -1094,11 +1095,11 @@ $C$RL6:    ; CALL OCCURS {_onesComplementChksum} {0}  ; |i2cparam.c:212|
 ;----------------------------------------------------------------------
            MV      .L2     B5,B4             ; |i2cparam.c:213| 
            LDHU    .D2T2   *B4,B0            ; |i2cparam.c:213| 
-           ZERO    .L1     A0
-           SET     .S1     A0,0x0,0xf,A0
+           ZERO    .L2     B1
+           SET     .S2     B1,0x0,0xf,B1
            NOP             2
-           CMPEQ   .L1X    B0,A0,A0          ; |i2cparam.c:213| 
-   [ A0]   BNOP    .S1     $C$L20,5          ; |i2cparam.c:213| 
+           CMPEQ   .L2     B0,B1,B0          ; |i2cparam.c:213| 
+   [ B0]   BNOP    .S1     $C$L20,5          ; |i2cparam.c:213| 
            ; BRANCHCC OCCURS {$C$L20}        ; |i2cparam.c:213| 
 ;** --------------------------------------------------------------------------*
 	.dwpsn	file "i2cparam.c",line 214,column 7,is_stmt
@@ -1132,7 +1133,7 @@ $C$DW$L$_main$5$B:
 ;----------------------------------------------------------------------
            MVKL    .S1     _formBlock,A3
            MVKH    .S1     _formBlock,A3
-           MV      .L1     A13,A4
+           MV      .L1     A14,A4
 $C$DW$80	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$80, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$80, DW_AT_name("_formBlock")
@@ -1149,7 +1150,7 @@ $C$DW$80	.dwtag  DW_TAG_TI_branch
 $C$RL7:    ; CALL OCCURS {_formBlock} {0}    ; |i2cparam.c:223| 
            CMPGT   .L1     A4,0,A0           ; |i2cparam.c:223| 
    [!A0]   BNOP    .S1     $C$L25,4          ; |i2cparam.c:223| 
-           MV      .L1     A4,A11            ; |i2cparam.c:223| 
+           MV      .L1     A4,A10            ; |i2cparam.c:223| 
            ; BRANCHCC OCCURS {$C$L25}        ; |i2cparam.c:223| 
 $C$DW$L$_main$5$E:
 ;** --------------------------------------------------------------------------*
@@ -1183,12 +1184,12 @@ $C$DW$81	.dwtag  DW_TAG_TI_branch
            ADDKPC  .S2     $C$RL8,B3,2       ; |i2cparam.c:227| 
 
            ADDAW   .D2     SP,4,B4           ; |i2cparam.c:227| 
-||         MV      .L1     A11,A6            ; |i2cparam.c:227| 
+||         MV      .L1     A10,A6            ; |i2cparam.c:227| 
 ||         ZERO    .L2     B6                ; |i2cparam.c:227| 
 ||         ZERO    .S1     A8                ; |i2cparam.c:227| 
 
 $C$RL8:    ; CALL OCCURS {_hwI2cMasterWrite} {0}  ; |i2cparam.c:227| 
-           MV      .L1     A4,A10            ; |i2cparam.c:227| 
+           MV      .L1     A4,A11            ; |i2cparam.c:227| 
 	.dwpsn	file "i2cparam.c",line 233,column 13,is_stmt
 ;----------------------------------------------------------------------
 ; 233 | if (iret != I2C_RET_OK)  {                                             
@@ -1196,7 +1197,7 @@ $C$RL8:    ; CALL OCCURS {_hwI2cMasterWrite} {0}  ; |i2cparam.c:227|
 ; 235 |     showI2cError (iret, iline);                                        
 ; 236 |     return;                                                            
 ;----------------------------------------------------------------------
-           MV      .L1     A10,A0            ; |i2cparam.c:233| 
+           MV      .L1     A11,A0            ; |i2cparam.c:233| 
    [ A0]   BNOP    .S1     $C$L26,4          ; |i2cparam.c:233| 
            LDW     .D2T2   *+SP(12),B0       ; |i2cparam.c:233| 
            ; BRANCHCC OCCURS {$C$L26}        ; |i2cparam.c:233| 
@@ -1316,7 +1317,7 @@ $C$DW$L$_main$12$B:
 ;----------------------------------------------------------------------
 ; 244 | } while (n > 0);                                                       
 ;----------------------------------------------------------------------
-           MV      .L1     A11,A0
+           MV      .L1     A10,A0
            CMPGT   .L1     A0,0,A0           ; |i2cparam.c:244| 
    [ A0]   BNOP    .S1     $C$L21,5          ; |i2cparam.c:244| 
            ; BRANCHCC OCCURS {$C$L21}        ; |i2cparam.c:244| 
@@ -1330,7 +1331,7 @@ $C$DW$82	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$82, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$82, DW_AT_name("_printf")
 	.dwattr $C$DW$82, DW_AT_TI_call
-           CALL    .S2X    A14               ; |i2cparam.c:248| 
+           CALL    .S2X    A13               ; |i2cparam.c:248| 
            MVKL    .S2     $C$SL9+0,B0
            MVKH    .S2     $C$SL9+0,B0
            STW     .D2T2   B0,*+SP(4)        ; |i2cparam.c:248| 
@@ -1369,7 +1370,7 @@ $C$DW$84	.dwtag  DW_TAG_TI_branch
            ADDKPC  .S2     $C$RL11,B3,3      ; |i2cparam.c:235| 
 
            ADDAW   .D2     SP,22,B4          ; |i2cparam.c:235| 
-||         MV      .L1     A10,A4            ; |i2cparam.c:235| 
+||         MV      .L1     A11,A4            ; |i2cparam.c:235| 
 
 $C$RL11:   ; CALL OCCURS {_showI2cError} {0}  ; |i2cparam.c:235| 
 	.dwpsn	file "i2cparam.c",line 236,column 17,is_stmt
@@ -1441,12 +1442,12 @@ $C$L28:
 	.dwcfi	cfa_offset, 40
            LDDW    .D2T1   *++SP,A11:A10
 	.dwcfi	cfa_offset, 32
-	.dwcfi	restore_reg, 10
 	.dwcfi	restore_reg, 11
+	.dwcfi	restore_reg, 10
            LDDW    .D2T1   *++SP,A13:A12
 	.dwcfi	cfa_offset, 24
-	.dwcfi	restore_reg, 12
 	.dwcfi	restore_reg, 13
+	.dwcfi	restore_reg, 12
            LDW     .D2T1   *++SP(8),A14
 	.dwcfi	cfa_offset, 16
 	.dwcfi	restore_reg, 14
@@ -1465,7 +1466,7 @@ $C$DW$90	.dwtag  DW_TAG_TI_branch
            ; BRANCH OCCURS {B3}  
 
 $C$DW$91	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$91, DW_AT_name("/home/gtbldadm/ti/mcsdk_2_01_02_06/tools/boot_loader/ibl/src/util/i2cConfig/i2cparam.asm:$C$L21:1:1353360949")
+	.dwattr $C$DW$91, DW_AT_name("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig\i2cparam.asm:$C$L21:1:1509598566")
 	.dwattr $C$DW$91, DW_AT_TI_begin_file("i2cparam.c")
 	.dwattr $C$DW$91, DW_AT_TI_begin_line(0xdd)
 	.dwattr $C$DW$91, DW_AT_TI_end_line(0xf4)
@@ -1486,7 +1487,7 @@ $C$DW$96	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$96, DW_AT_high_pc($C$DW$L$_main$12$E)
 
 $C$DW$97	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$97, DW_AT_name("/home/gtbldadm/ti/mcsdk_2_01_02_06/tools/boot_loader/ibl/src/util/i2cConfig/i2cparam.asm:$C$L23:2:1353360949")
+	.dwattr $C$DW$97, DW_AT_name("D:\workspace\PR6100B\dsp\IBL\ibl\src\util\i2cConfig\i2cparam.asm:$C$L23:2:1509598566")
 	.dwattr $C$DW$97, DW_AT_TI_begin_file("i2cparam.c")
 	.dwattr $C$DW$97, DW_AT_TI_begin_line(0xf0)
 	.dwattr $C$DW$97, DW_AT_TI_end_line(0xf0)

@@ -1,6 +1,6 @@
 file_name = ibl.bin
-device = 
-offset = 
+device = 8
+offset = 0x500
 ethBoot-doBootp = 
 ethBoot-bootFormat = 
 ethBoot-ipAddr = 

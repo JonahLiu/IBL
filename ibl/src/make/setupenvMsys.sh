@@ -7,7 +7,7 @@
 export C6X_BASE_DIR='"/D/App/CCS5.2.1.00018/ccsv5/tools/compiler/c6000_7.3.4"'
 
 # Specify the base directory of the c6000 compiler in format understandable by the MSYS Bash shell 
-export C6X_BASE_DIR_MSYS=/c/Program\ Files/Texas\ Instruments/C6000\ Code\ Generation\ Tools\ 7\.2\.4
+export C6X_BASE_DIR_MSYS=/D/App/CCS5.2.1.00018/ccsv5/tools/compiler/c6000_7.3.4
 
 # Don't modify the below variables. They are derived from the above definitions 
 export PATH=$PATH:$C6X_BASE_DIR_MSYS/bin

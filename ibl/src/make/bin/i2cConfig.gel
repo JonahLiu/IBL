@@ -1210,10 +1210,10 @@ hotmenu setConfig_c6657_main()
 	ibl.pllConfig[ibl_MAIN_PLL].postdiv       = 2;
 	ibl.pllConfig[ibl_MAIN_PLL].pllOutFreqMhz = 1000;
 
-	/* DDR PLL: */
+	/* DDR PLL: */ /* updated for PR6100 */
 	ibl.pllConfig[ibl_DDR_PLL].doEnable       = 1; 
-	ibl.pllConfig[ibl_DDR_PLL].prediv         = 3;
-	ibl.pllConfig[ibl_DDR_PLL].mult           = 40;
+	ibl.pllConfig[ibl_DDR_PLL].prediv         = 1;
+	ibl.pllConfig[ibl_DDR_PLL].mult           = 20;
 	ibl.pllConfig[ibl_DDR_PLL].postdiv        = 2;
 	ibl.pllConfig[ibl_DDR_PLL].pllOutFreqMhz  = 1333;
 
@@ -1225,12 +1225,12 @@ hotmenu setConfig_c6657_main()
 	ibl.ddrConfig.configDdr = TRUE;
 	ibl.ddrConfig.uEmif.emif4p0.registerMask = ibl_EMIF4_ENABLE_sdRamConfig | ibl_EMIF4_ENABLE_sdRamRefreshCtl | ibl_EMIF4_ENABLE_sdRamTiming1 | ibl_EMIF4_ENABLE_sdRamTiming2 | ibl_EMIF4_ENABLE_sdRamTiming3 | ibl_EMIF4_ENABLE_ddrPhyCtl1;
 
-	ibl.ddrConfig.uEmif.emif4p0.sdRamConfig				= 0x62477AB2;
+	ibl.ddrConfig.uEmif.emif4p0.sdRamConfig				= 0x63066AB2;
 	ibl.ddrConfig.uEmif.emif4p0.sdRamConfig2			= 0;
-	ibl.ddrConfig.uEmif.emif4p0.sdRamRefreshCtl			= 0x000030D4;
-	ibl.ddrConfig.uEmif.emif4p0.sdRamTiming1			= 0x1333780C;
-	ibl.ddrConfig.uEmif.emif4p0.sdRamTiming2			= 0x30717FE3;
-	ibl.ddrConfig.uEmif.emif4p0.sdRamTiming3 			= 0x559F86AF;
+	ibl.ddrConfig.uEmif.emif4p0.sdRamRefreshCtl			= 0x00001458;
+	ibl.ddrConfig.uEmif.emif4p0.sdRamTiming1			= 0x133367E4;
+	ibl.ddrConfig.uEmif.emif4p0.sdRamTiming2			= 0x30B37FE3;
+	ibl.ddrConfig.uEmif.emif4p0.sdRamTiming3 			= 0x559F8ADF;
 	ibl.ddrConfig.uEmif.emif4p0.lpDdrNvmTiming			= 0;
 	ibl.ddrConfig.uEmif.emif4p0.powerManageCtl			= 0;
 	ibl.ddrConfig.uEmif.emif4p0.iODFTTestLogic			= 0;
